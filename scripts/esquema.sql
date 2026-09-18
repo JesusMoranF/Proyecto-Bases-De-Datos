@@ -1,5 +1,5 @@
-esquema base de datos para operaciones mineras. Q-Answer
-Motor: PostgreSQL
+--esquema base de datos para operaciones mineras. Q-Answer
+--Motor: PostgreSQL
 
 DROP TABLE IF EXISTS DetalleDespacho CASCADE;
 DROP TABLE IF EXISTS Despacho CASCADE;
@@ -20,7 +20,7 @@ DROP TABLE IF EXISTS Intendencia CASCADE;
 DROP TABLE IF EXISTS GerenciaOperaciones CASCADE;
 
 
-1. Estructura
+--1. Estructura
 
 
 CREATE TABLE GerenciaOperaciones(
@@ -47,7 +47,7 @@ CREATE TABLE Equipo(
         REFERENCES Intendencia(ID_Intendencia) ON DELETE CASCADE
 );
 
-2.- Mantenimiento
+--2.- Mantenimiento
 
 CREATE TABLE TipoMantenimiento(
     ID_TipoMantenimiento SERIAL PRIMARY KEY,
@@ -66,7 +66,7 @@ CREATE TABLE Mantenimiento(
         REFERENCES Equipo(ID_Equipo) ON DELETE CASCADE
 );
 
-3. Personal y turnos
+--3. Personal y turnos
 
 CREATE TABLE Rol(
     ID_Rol SERIAL PRIMARY KEY,
@@ -101,7 +101,7 @@ CREATE TABLE Asignacion_Turno(
         REFERENCES Empleado(ID_Empleado) ON DELETE CASCADE
 );
 
-4.- Producción y procesos
+--4.- Producción y procesos
 
 CREATE TABLE ProcesoProductivo(
     ID_Proceso SERIAL PRIMARY KEY,
@@ -150,7 +150,7 @@ CREATE TABLE ProductoFinal(
         REFERENCES TipoMineral(ID_TipoMineral)
 );
 
-5.- Clientes y despacho
+--5.- Clientes y despacho
 
 CREATE TABLE Cliente(
     ID_Cliente SERIAL PRIMARY KEY,
