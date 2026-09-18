@@ -14,7 +14,7 @@ DECLARE
 BEGIN
     -- Validar que la hora de inicio y fin no sean iguales
     IF NEW.Hora_Inicio = NEW.Hora_Fin THEN
-        RAISE EXCEPTION 'Error de validación: La hora de fin (%) no puede ser igual a la hora de inicio (%).', 
+        RAISE EXCEPTION 'La hora de fin (%) no puede ser igual a la hora de inicio (%).', 
             NEW.Hora_Fin, NEW.Hora_Inicio;
     END IF;
 
@@ -79,7 +79,7 @@ BEGIN
     SET Estado = 'En mantenimiento'
     WHERE ID_Equipo = p_id_equipo;
 
-    -- Recuperar información para retroalimentación
+    -- Recuperar información 
     SELECT Nombre INTO v_nombre_equipo FROM Equipo WHERE ID_Equipo = p_id_equipo;
     SELECT Descripcion INTO v_tipo_mantenimiento FROM TipoMantenimiento WHERE ID_TipoMantenimiento = p_id_tipo_mantenimiento;
 
